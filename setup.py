@@ -1,21 +1,19 @@
-"""
-    Setup file for api_project_1.
-    Use setup.cfg to configure your project.
+from setuptools import setup, find_packages
 
-    This file was generated with PyScaffold 4.3.1.
-    PyScaffold helps you to put up the scaffold of your new Python project.
-    Learn more under: https://pyscaffold.org/
-"""
-from setuptools import setup
-
-if __name__ == "__main__":
-    try:
-        setup(use_scm_version={"version_scheme": "no-guess-dev"})
-    except:  # noqa
-        print(
-            "\n\nAn error occurred while building the project, "
-            "please ensure you have the most updated version of setuptools, "
-            "setuptools_scm and wheel with:\n"
-            "   pip install -U setuptools setuptools_scm wheel\n\n"
-        )
-        raise
+setup(
+    name="api_project_1",
+    version="0.0.1",
+    author="copied from Edidiong Etuk",
+    author_email="edeediong@gmail.com",
+    long_description_content_type = 'text/markdown',
+    url="https://bit.ly/edeediong-resume",
+    description="timezones",
+    packages=find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    install_requires=["click", "pytz"],
+    entry_points={"console_scripts": ["timechecker = src.main:main"]},
+)
