@@ -34,6 +34,13 @@ class EmployeesName(Resource):
         conn.close()
         return jsonify(result)
 
+class Genres(Resource):
+    def get(self):
+        conn = db_connect.connect()
+        query = conn.execute(text("select * from genres"))
+        result = {"genres": [i[1] for i in query.cursor.fetchall()]}
+        conn.close()
+        return jsonify(result)
 
 def main():
     app = Flask(__name__)
@@ -42,6 +49,7 @@ def main():
     api.add_resource(Employees, "/employees")  # Route_1
     api.add_resource(Tracks, "/tracks")  # Route_2
     api.add_resource(EmployeesName, "/employees/<employee_id>")  # Route_3
+    api.add_resource(Genres, "/genres") # Route_4
 
     app.run(port="5000")
 
