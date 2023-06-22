@@ -52,7 +52,7 @@ def main():
     api.add_resource(Genres, "/genres") # Route_4
 
     app.run(port="5000")
-
+#testing
     db_connect.dispose()
 
 
